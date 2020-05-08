@@ -1,0 +1,70 @@
+{
+  "movies": [
+    {
+      "poster": "/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg",
+      "backdrop": "/5BwqwxMEjeFtdknRV792Svo0K1v.jpg",
+      "title": "Ad Astra",
+      "trailer": "https://drive.google.com/uc?id=1aSfx8Saund-J2MLAK4W7KAoFWyxmcLox"
+    },
+    {
+      "poster": "/wlfDxbGEsW58vGhFljKkcR5IxDj.jpg",
+      "backdrop": "/1R6cvRtZgsYCkh8UFuWFN33xBP4.jpg",
+      "title": "Extraction",
+      "trailer": ""
+    },
+    {
+      "poster": "/h4VB6m0RwcicVEZvzftYZyKXs6K.jpg",
+      "backdrop": "/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg",
+      "title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "trailer": ""
+    },
+    {
+      "poster": "/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
+      "backdrop": "/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg",
+      "title": "Star Wars: The Rise of Skywalker",
+      "trailer": ""
+    },
+    {
+      "poster": "/oiFxdnsQyGs3DBLzHzW92GrDR6w.jpg",
+      "backdrop": "/6I6ZhQrX4L4KIxSzlgg8zc1BSLr.jpg",
+      "title": "To the Beat! Back 2 School",
+      "trailer": ""
+    },
+    {
+      "poster": "/gzlbb3yeVISpQ3REd3Ga1scWGTU.jpg",
+      "backdrop": "/ww7eC3BqSbFsyE5H5qMde8WkxJ2.jpg",
+      "title": "Underwater",
+      "trailer": ""
+    },
+    {
+      "poster": "/y95lQLnuNKdPAzw9F9Ab8kJ80c3.jpg",
+      "backdrop": "/upUy2QhMZEmtypPW3PdieKLAHxh.jpg",
+      "title": "Bad Boys for Life",
+      "trailer": ""
+    },
+    {
+      "poster": "/qa6HCwP4Z15l3hpsASz3auugEW6.jpg",
+      "backdrop": "/sd4xN5xi8tKRPrJOWwNiZEile7f.jpg",
+      "title": "Cars",
+      "trailer": ""
+    },
+    {
+      "poster": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+      "backdrop": "/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg",
+      "title": "Star Wars",
+      "trailer": ""
+    },
+    {
+      "poster": "/x0g9tzgZKKmNEtwcjS3aF4kduRi.jpg",
+      "backdrop": "/tuqv0jb0o7sBOivgkagKJHuO6X4.jpg",
+      "title": "Dangerous Lies",
+      "trailer": ""
+    },
+    {
+      "poster": "/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+      "backdrop": "/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg",
+      "title": "Joker",
+      "trailer": ""
+    }
+  ]
+}

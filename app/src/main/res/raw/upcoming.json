@@ -1,0 +1,58 @@
+{
+  "movies": [
+    {
+      "poster": "/iOPXG7q6ZqxSFp2iSY2CvgeRXyC.jpg",
+      "backdrop": "/uy6l4Y8EZiNlNN5BGHnWfUNtVOy.jpg",
+      "title": "No Time to Die",
+      "trailer": "https://drive.google.com/uc?id=1TEtXcl_c1Y0u0iaJRsATWawWhIKVKi-A"
+    },
+    {
+      "poster": "/8ZX18L5m6rH5viSYpRnTSbb9eXh.jpg",
+      "backdrop": "/3tkDMNfM2YuIAJlvGO6rfIzAnfG.jpg",
+      "title": "The Platform",
+      "trailer": ""
+    },
+    {
+      "poster": "/zaecdNcjcVDiOcDcgQCOgHELSo0.jpg",
+      "backdrop": "/A7xO8NpdS7fbBKGmh84HbSD21OJ.jpg",
+      "title": "The Wretched",
+      "trailer": ""
+    },
+    {
+      "poster": "/dqA2FCzz4OMmXLitKopzf476RVB.jpg",
+      "backdrop": "/ezcf15gSuZmW51N5yiqE3tWg9zu.jpg",
+      "title": "I Still Believe",
+      "trailer": ""
+    },
+    {
+      "poster": "/rmflsMjk4lxx2foNUtd1OKWv6vB.jpg",
+      "backdrop": "/qfQ78ZKiouoM2yhAnfNblp9ijQE.jpg",
+      "title": "The Hunt",
+      "trailer": ""
+    },
+    {
+      "poster": "/8GGS0jkFFCnmdStvZED6NL6V7gd.jpg",
+      "backdrop": "/kolkVKNZSjhZGHwcrFU36Watpke.jpg",
+      "title": "Escape From Pretoria",
+      "trailer": ""
+    },
+    {
+      "poster": "/sm8iVzA7kRp0d4BSIsgXjsSBMKV.jpg",
+      "backdrop": "/5GbkL9DDRzq3A21nR7Gkv6cFGjq.jpg",
+      "title": "Emma.",
+      "trailer": ""
+    },
+    {
+      "poster_path": "/p9vCAVhDK375XyobVcKqzqzsUHE.jpg",
+      "backdrop_path": "/w0tJot6O0UtLVBRIPAdg3dQ2oNO.jpg",
+      "title": "A Beautiful Day in the Neighborhood",
+      "trailer": ""
+    },
+    {
+      "poster": "/fKv4A3zlqmlVacu8dbKNk9Twz7h.jpg",
+      "backdrop": "/eZwwJ5yRpMDhZzfMS7XeWwUzLSE.jpg",
+      "title": "The Last Full Measure",
+      "trailer": ""
+    }
+  ]
+}

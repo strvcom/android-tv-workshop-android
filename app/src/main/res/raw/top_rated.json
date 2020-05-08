@@ -1,0 +1,82 @@
+{
+  "movies": [
+    {
+      "title": "The Shawshank Redemption",
+      "backdrop": "/avedvodAZUcwqevBfm8p4G2NziQ.jpg",
+      "trailer": "",
+      "poster_path": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg"
+    },
+    {
+      "poster": "/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg",
+      "backdrop": "/7VrRna8S3x6xbijooeBmxqvHXiu.jpg",
+      "title": "The Godfather",
+      "trailer": ""
+    },
+    {
+      "title": "Schindler's List",
+      "backdrop": "/w2ezhZUk7ZJH9Mdk1Y6CTmaDRg5.jpg",
+      "trailer": "",
+      "poster": "/c8Ass7acuOe4za6DhSattE359gr.jpg"
+    },
+    {
+      "poster": "/q719jXXEzOoYaps6babgKnONONX.jpg",
+      "backdrop": "/e7TRYDKXHQD6xLcmA1b0OtVt0E0.jpg",
+      "title": "Your Name.",
+      "trailer": ""
+    },
+    {
+      "poster": "/amvmeQWheahG3StKwIE1f7jRnkZ.jpg",
+      "backdrop": "/bNDAvlXCX160fF54ltA4SGpPGI5.jpg",
+      "title": "The Godfather: Part II",
+      "trailer": ""
+    },
+    {
+      "poster": "/zGGWYpiKNwjpKxelPxOMqJnUgDs.jpg",
+      "backdrop": "/bh6yfB6I1N1WuMiX6K5HxGVZnja.jpg",
+      "title": "We All Loved Each Other So Much",
+      "trailer": ""
+    },
+    {
+      "poster": "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "backdrop": "/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+      "title": "Parasite",
+      "trailer": ""
+    },
+    {
+      "poster": "/8Q2kDDyswBB8SPUJWfNlqvxdDFX.jpg",
+      "backdrop": "/Ab8mkHmkYADjU7wQiOkia9BzGvS.jpg",
+      "title": "Spirited Away",
+      "trailer": ""
+    },
+    {
+      "poster": "/sOHqdY1RnSn6kcfAHKu28jvTebE.jpg",
+      "backdrop": "/hvbWh2aBmBNWEBJIjJF2Km6Pn4i.jpg",
+      "title": "The Green Mile",
+      "trailer": ""
+    },
+    {
+      "poster": "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+      "backdrop": "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+      "title": "Pulp Fiction",
+      "trailer": ""
+    },
+    {
+      "poster_path": "/mfnkSeeVOBVheuyn2lo4tfmOPQb.jpg",
+      "backdrop_path": "/gavyCu1UaTaTNPsVaGXT6pe5u24.jpg",
+      "title": "Life Is Beautiful",
+      "trailer": ""
+    },
+    {
+      "poster": "/4VlXER3FImHeFuUjBShFamhIp9M.jpg",
+      "backdrop": "/vw3zNfzvnVNF7nIjpiEgcdznfeC.jpg",
+      "title": "Mortal Kombat Legends: Scorpion's Revenge",
+      "trailer": "2020-04-12"
+    },
+    {
+      "poster_path": "/hBDHr3YihnuL46aeyEMhTchXkZP.jpg",
+      "backdrop_path": "/gUdk0FMw38DSUqpnLLHCAWN60he.jpg",
+      "title": "Once Upon a Time in America",
+      "trailer": ""
+    }
+  ]
+}
