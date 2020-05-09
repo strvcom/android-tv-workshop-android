@@ -4,7 +4,7 @@
       "title": "The Shawshank Redemption",
       "backdrop": "/avedvodAZUcwqevBfm8p4G2NziQ.jpg",
       "trailer": "",
-      "poster_path": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg"
+      "poster": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg"
     },
     {
       "poster": "/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg",
@@ -61,8 +61,8 @@
       "trailer": ""
     },
     {
-      "poster_path": "/mfnkSeeVOBVheuyn2lo4tfmOPQb.jpg",
-      "backdrop_path": "/gavyCu1UaTaTNPsVaGXT6pe5u24.jpg",
+      "poster": "/mfnkSeeVOBVheuyn2lo4tfmOPQb.jpg",
+      "backdrop": "/gavyCu1UaTaTNPsVaGXT6pe5u24.jpg",
       "title": "Life Is Beautiful",
       "trailer": ""
     },
@@ -73,8 +73,8 @@
       "trailer": "2020-04-12"
     },
     {
-      "poster_path": "/hBDHr3YihnuL46aeyEMhTchXkZP.jpg",
-      "backdrop_path": "/gUdk0FMw38DSUqpnLLHCAWN60he.jpg",
+      "poster": "/hBDHr3YihnuL46aeyEMhTchXkZP.jpg",
+      "backdrop": "/gUdk0FMw38DSUqpnLLHCAWN60he.jpg",
       "title": "Once Upon a Time in America",
       "trailer": ""
     }
