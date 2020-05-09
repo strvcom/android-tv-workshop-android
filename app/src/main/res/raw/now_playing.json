@@ -1,0 +1,82 @@
+{
+  "movies": [
+    {
+      "poster": "/33VdppGbeNxICrFUtW2WpGHvfYc.jpg",
+      "backdrop": "/9sXHqZTet3Zg5tgcc0hCDo8Tn35.jpg",
+      "title": "The Call of the Wild",
+      "trailer": "https://drive.google.com/uc?id=1xPiB5hrnd-jlc3U7njmb8JZhhKBv28gG"
+    },
+    {
+      "poster": "/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+      "backdrop": "/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg",
+      "title": "Sonic the Hedgehog",
+      "trailer": ""
+    },
+    {
+      "poster": "/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg",
+      "backdrop": "/ocUrMYbdjknu2TwzMHKT9PBBQRw.jpg",
+      "title": "Bloodshot",
+      "trailer": ""
+    },
+    {
+      "poster": "/8ZMrZGGW65ePWIgRn1260nA1uUm.jpg",
+      "backdrop": "/x80ZIVGUJ6plcUBcgVZ6DPKT7vc.jpg",
+      "title": "Fantasy Island",
+      "trailer": ""
+    },
+    {
+      "poster": "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "backdrop": "/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+      "title": "Parasite",
+      "trailer": ""
+    },
+    {
+      "poster": "/f4aul3FyD3jv3v4bul1IrkWZvzq.jpg",
+      "backdrop": "/xFxk4vnirOtUxpOEWgA1MCRfy6J.jpg",
+      "title": "Onward",
+      "trailer": ""
+    },
+    {
+      "poster": "/n2C6jRK9PtPIs99RQhKtqGlsnsO.jpg",
+      "backdrop": "/yalJdTsb6EcDX5devj2ltWXuceO.jpg",
+      "title": "My Spy",
+      "trailer": ""
+    },
+    {
+      "poster": "/jtrhTYB7xSrJxR1vusu99nvnZ1g.jpg",
+      "backdrop": "/tintsaQ0WLzZsTMkTiqtMB3rfc8.jpg",
+      "title": "The Gentlemen",
+      "trailer": ""
+    },
+    {
+      "poster": "/7BC2Mv2ekyBIto68YOrc1DRARv6.jpg",
+      "backdrop": "/hOREXWuVMG0xSKjdwh6QeOoJDFo.jpg",
+      "title": "Love The Way You Are",
+      "trailer": ""
+    },
+    {
+      "title": "Little Women",
+      "backdrop": "/3uTxPIdVEXxHpsHOHdJC24QebBV.jpg",
+      "trailer": "",
+      "poster": "/yn5ihODtZ7ofn8pDYfxCmxh8AXI.jpg"
+    },
+    {
+      "poster": "/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
+      "backdrop": "/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg",
+      "title": "Trolls World Tour",
+      "trailer": ""
+    },
+    {
+      "poster": "/5EufsDwXdY2CVttYOk2WtYhgKpa.jpg",
+      "backdrop": "/uZMZyvarQuXLRqf3xdpdMqzdtjb.jpg",
+      "title": "The Invisible Man",
+      "trailer": ""
+    },
+    {
+      "poster": "/zaecdNcjcVDiOcDcgQCOgHELSo0.jpg",
+      "backdrop": "/A7xO8NpdS7fbBKGmh84HbSD21OJ.jpg",
+      "title": "The Wretched",
+      "trailer": ""
+    }
+  ]
+}
