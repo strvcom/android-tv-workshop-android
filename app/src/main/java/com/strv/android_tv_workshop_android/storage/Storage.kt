@@ -19,9 +19,6 @@ class Storage @Inject constructor(val context: Context) {
 	val moviesState: BehaviorSubject<MoviesState> = BehaviorSubject.createDefault(
 		MoviesState(emptyList(), emptyList(), emptyList(), emptyList())
 	)
-	val songsState: BehaviorSubject<SongsState> = BehaviorSubject.createDefault(
-		SongsState(emptyList())
-	)
 	private val moviesResponseAdapter = Moshi.Builder().build().adapter(MoviesResponse::class.java)
 	private val songsResponseAdapter = Moshi.Builder().build().adapter(SongsResponse::class.java)
 
@@ -30,8 +27,6 @@ class Storage @Inject constructor(val context: Context) {
 		fetchTopRatedMovies()
 		fetchUpcomingMovies()
 		fetchPopularMovies()
-		
-		fetchSongs()
 	}
 
 	private fun fetchNowPlayingMovies() {
@@ -48,10 +43,6 @@ class Storage @Inject constructor(val context: Context) {
 
 	private fun fetchUpcomingMovies() {
 		moviesState.update { copy(upcomingMovies = getMoviesFromRaw(R.raw.upcoming)) }
-	}
-
-	private fun fetchSongs() {
-		songsState.update { copy(songs = getSongsFromRaw(R.raw.songs)) }
 	}
 
 	private fun getMoviesFromRaw(@RawRes resourceId: Int): List<Movie> {
@@ -73,8 +64,4 @@ data class MoviesState(
 	val topRatedMovies: List<Movie>,
 	val upcomingMovies: List<Movie>,
 	val popularMovies: List<Movie>
-)
-
-data class SongsState(
-	val songs: List<Song>
 )
