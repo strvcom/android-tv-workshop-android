@@ -20,7 +20,6 @@ class Storage @Inject constructor(val context: Context) {
 		MoviesState(emptyList(), emptyList(), emptyList(), emptyList())
 	)
 	private val moviesResponseAdapter = Moshi.Builder().build().adapter(MoviesResponse::class.java)
-	private val songsResponseAdapter = Moshi.Builder().build().adapter(SongsResponse::class.java)
 
 	init {
 		fetchNowPlayingMovies()
@@ -50,13 +49,6 @@ class Storage @Inject constructor(val context: Context) {
 
 		return moviesResponseAdapter.fromJson(json)?.movies ?: emptyList()
 	}
-
-	private fun getSongsFromRaw(@RawRes resourceId: Int): List<Song> {
-		val json = context.resources.openRawResource(resourceId).bufferedReader().readText()
-
-		return songsResponseAdapter.fromJson(json)?.songs ?: emptyList()
-	}
-
 }
 
 data class MoviesState(
