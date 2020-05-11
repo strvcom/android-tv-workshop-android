@@ -1,6 +1,7 @@
 package com.strv.android_tv_workshop_android.main
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.widget.*
@@ -9,11 +10,14 @@ import com.strv.android_tv_workshop_android.R
 import com.strv.android_tv_workshop_android.domain.Movie
 import com.strv.android_tv_workshop_android.glide.GlideBackgroundManager
 import com.strv.android_tv_workshop_android.player.MoviePresenter
+import com.strv.android_tv_workshop_android.player.PlayerActivity
 import com.strv.android_tv_workshop_android.storage.BACKDROP_URL
 import com.strv.android_tv_workshop_android.storage.Storage
 import javax.inject.Inject
 
-class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener {
+const val EXTRA_MOVIE = "extra_movie"
+class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener,
+	OnItemViewClickedListener {
 	@Inject
 	lateinit var storage: Storage
 
@@ -45,6 +49,22 @@ class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener {
 		}
 	}
 
+	override fun onItemClicked(
+		itemViewHolder: Presenter.ViewHolder?,
+		item: Any?,
+		rowViewHolder: RowPresenter.ViewHolder?,
+		row: Row?
+	) {
+		when (item) {
+			is Movie -> {
+				val playerIntent = Intent(activity!!, PlayerActivity::class.java).apply { 
+					putExtra(EXTRA_MOVIE, item)
+				}
+				startActivity(playerIntent)
+			}
+		}
+	}
+
 	private fun loadRows() {
 		activity?.let {
 			val rowsAdapter = ArrayObjectAdapter(
@@ -68,6 +88,7 @@ class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener {
 		isHeadersTransitionOnBackEnabled = true
 		prepareEntranceTransition()
 		onItemViewSelectedListener = this
+		onItemViewClickedListener = this
 	}
 
 	private fun addMovies(
