@@ -42,4 +42,7 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     implementation "com.squareup.moshi:moshi:$moshi_version"
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.4'
+    implementation 'com.google.android.exoplayer:extension-leanback:2.11.4'
 }
