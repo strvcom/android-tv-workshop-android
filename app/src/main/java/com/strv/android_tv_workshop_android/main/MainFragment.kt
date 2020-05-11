@@ -3,20 +3,21 @@ package com.strv.android_tv_workshop_android.main
 import android.content.Context
 import android.os.Bundle
 import androidx.leanback.app.BrowseSupportFragment
-import androidx.leanback.widget.ArrayObjectAdapter
-import androidx.leanback.widget.HeaderItem
-import androidx.leanback.widget.ListRow
-import androidx.leanback.widget.ListRowPresenter
+import androidx.leanback.widget.*
 import com.strv.android_tv_workshop_android.AndroidTVApp
 import com.strv.android_tv_workshop_android.R
 import com.strv.android_tv_workshop_android.domain.Movie
+import com.strv.android_tv_workshop_android.glide.GlideBackgroundManager
 import com.strv.android_tv_workshop_android.player.MoviePresenter
+import com.strv.android_tv_workshop_android.storage.BACKDROP_URL
 import com.strv.android_tv_workshop_android.storage.Storage
 import javax.inject.Inject
 
-class MainFragment : BrowseSupportFragment() {
+class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener {
 	@Inject
 	lateinit var storage: Storage
+
+	private val backgroundManager by lazy { GlideBackgroundManager(activity!!) }
 
 	override fun onAttach(context: Context?) {
 		super.onAttach(context)
@@ -31,6 +32,19 @@ class MainFragment : BrowseSupportFragment() {
 		loadRows()
 	}
 
+	override fun onItemSelected(
+		itemViewHolder: Presenter.ViewHolder?,
+		item: Any?,
+		rowViewHolder: RowPresenter.ViewHolder?,
+		row: Row?
+	) {
+		when (item) {
+			is Movie -> {
+				backgroundManager.loadImage(BACKDROP_URL + item.backdrop)
+			}
+		}
+	}
+
 	private fun loadRows() {
 		activity?.let {
 			val rowsAdapter = ArrayObjectAdapter(
@@ -42,7 +56,7 @@ class MainFragment : BrowseSupportFragment() {
 				addMovies(it.upcomingMovies, rowsAdapter, getString(R.string.header_upcoming))
 				addMovies(it.popularMovies, rowsAdapter, getString(R.string.header_popular))
 				addMovies(it.topRatedMovies, rowsAdapter, getString(R.string.header_top_rated))
-				
+
 			}, {})
 
 			adapter = rowsAdapter
@@ -53,6 +67,7 @@ class MainFragment : BrowseSupportFragment() {
 		headersState = HEADERS_ENABLED
 		isHeadersTransitionOnBackEnabled = true
 		prepareEntranceTransition()
+		onItemViewSelectedListener = this
 	}
 
 	private fun addMovies(

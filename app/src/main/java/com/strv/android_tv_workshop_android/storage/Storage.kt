@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
 const val POSTER_URL = "https://image.tmdb.org/t/p/w500"
-const val BACKDROP_URL = "http://image.tmdb.org/t/p/w1280"
+const val BACKDROP_URL = "https://image.tmdb.org/t/p/w1280"
 
 class Storage @Inject constructor(val context: Context) {
 	val moviesState: BehaviorSubject<MoviesState> = BehaviorSubject.createDefault(
