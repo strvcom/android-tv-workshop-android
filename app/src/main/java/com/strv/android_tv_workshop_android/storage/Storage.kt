@@ -5,14 +5,12 @@ import androidx.annotation.RawRes
 import com.squareup.moshi.Moshi
 import com.strv.android_tv_workshop_android.R
 import com.strv.android_tv_workshop_android.domain.Movie
-import com.strv.android_tv_workshop_android.domain.Song
 import com.strv.android_tv_workshop_android.extensions.update
 import com.strv.android_tv_workshop_android.network.entity.MoviesResponse
-import com.strv.android_tv_workshop_android.network.entity.SongsResponse
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
-const val POSTER_URL = "http://image.tmdb.org/t/p/w500"
+const val POSTER_URL = "https://image.tmdb.org/t/p/w500"
 const val BACKDROP_URL = "http://image.tmdb.org/t/p/w1280"
 
 class Storage @Inject constructor(val context: Context) {

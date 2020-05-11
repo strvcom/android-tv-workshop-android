@@ -1,67 +1,68 @@
 package com.strv.android_tv_workshop_android.main
 
-import android.media.MediaMetadataRetriever
-import android.net.Uri
-import androidx.leanback.app.PlaybackSupportFragment
-import androidx.leanback.app.PlaybackSupportFragmentGlueHost
-import androidx.leanback.media.PlaybackTransportControlGlue
-import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.ext.leanback.LeanbackPlayerAdapter
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.upstream.DataSource
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import android.content.Context
+import android.os.Bundle
+import androidx.leanback.app.BrowseSupportFragment
+import androidx.leanback.widget.ArrayObjectAdapter
+import androidx.leanback.widget.HeaderItem
+import androidx.leanback.widget.ListRow
+import androidx.leanback.widget.ListRowPresenter
+import com.strv.android_tv_workshop_android.AndroidTVApp
+import com.strv.android_tv_workshop_android.R
+import com.strv.android_tv_workshop_android.domain.Movie
+import com.strv.android_tv_workshop_android.player.MoviePresenter
+import com.strv.android_tv_workshop_android.storage.Storage
+import javax.inject.Inject
 
-const val SONG_URL = "https://drive.google.com/uc?id=1hGkfMQv9n7-gBq7BepXe33ZmPZT8cmCu"
+class MainFragment : BrowseSupportFragment() {
+	@Inject
+	lateinit var storage: Storage
 
-class MainFragment : PlaybackSupportFragment() {
-	private lateinit var player: SimpleExoPlayer
-	private lateinit var playerGlue: PlaybackTransportControlGlue<LeanbackPlayerAdapter>
+	override fun onAttach(context: Context?) {
+		super.onAttach(context)
 
-	override fun onStart() {
-		super.onStart()
-
-		initializePlayer()
+		(activity!!.application as AndroidTVApp).appComponent.inject(this)
 	}
 
-	override fun onStop() {
-		super.onStop()
+	override fun onActivityCreated(savedInstanceState: Bundle?) {
+		super.onActivityCreated(savedInstanceState)
 
-		releasePlayer()
+		setupUi()
+		loadRows()
 	}
 
-	private fun initializePlayer() {
-		player = SimpleExoPlayer.Builder(activity!!).build()
-		val adapter = LeanbackPlayerAdapter(activity!!, player, 1000)
+	private fun loadRows() {
+		activity?.let {
+			val rowsAdapter = ArrayObjectAdapter(
+				ListRowPresenter()
+			)
 
-		playerGlue = PlaybackTransportControlGlue(activity, adapter)
-		playerGlue.host = PlaybackSupportFragmentGlueHost(this)
-		fetchSongMetadata()
-		val mediaSource = buildMediaSource(Uri.parse(SONG_URL))
-		player.prepare(mediaSource!!)
+			storage.moviesState.subscribe({
+				addMovies(it.nowPlayingMovies, rowsAdapter, getString(R.string.header_now_playing))
+				addMovies(it.upcomingMovies, rowsAdapter, getString(R.string.header_upcoming))
+				addMovies(it.popularMovies, rowsAdapter, getString(R.string.header_popular))
+				addMovies(it.topRatedMovies, rowsAdapter, getString(R.string.header_top_rated))
+				
+			}, {})
 
-		playerGlue.playWhenPrepared()
-	}
-
-	private fun fetchSongMetadata() {
-		val metadataRetriever = MediaMetadataRetriever()
-		metadataRetriever.setDataSource(SONG_URL, mutableMapOf())
-		playerGlue.title =
-			metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE)
-		playerGlue.subtitle =
-			metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST)
-	}
-
-	private fun buildMediaSource(uri: Uri): MediaSource? {
-		val dataSourceFactory: DataSource.Factory =
-			DefaultDataSourceFactory(activity!!, "activevideo-benchmark")
-		return ProgressiveMediaSource.Factory(dataSourceFactory)
-			.createMediaSource(uri)
-	}
-
-	private fun releasePlayer() {
-		if (::player.isInitialized) {
-			player.release()
+			adapter = rowsAdapter
 		}
+	}
+
+	private fun setupUi() {
+		headersState = HEADERS_ENABLED
+		isHeadersTransitionOnBackEnabled = true
+		prepareEntranceTransition()
+	}
+
+	private fun addMovies(
+		movies: List<Movie>,
+		rowsAdapter: ArrayObjectAdapter,
+		header: String
+	) {
+		val listRowAdapter = ArrayObjectAdapter(MoviePresenter())
+		movies.forEach { listRowAdapter.add(it) }
+		val moviesHeader = HeaderItem(-1, header)
+		rowsAdapter.add(ListRow(moviesHeader, listRowAdapter))
 	}
 }
