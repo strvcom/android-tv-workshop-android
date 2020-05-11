@@ -5,10 +5,8 @@ import androidx.annotation.RawRes
 import com.squareup.moshi.Moshi
 import com.strv.android_tv_workshop_android.R
 import com.strv.android_tv_workshop_android.domain.Movie
-import com.strv.android_tv_workshop_android.domain.Song
 import com.strv.android_tv_workshop_android.extensions.update
 import com.strv.android_tv_workshop_android.network.entity.MoviesResponse
-import com.strv.android_tv_workshop_android.network.entity.SongsResponse
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
