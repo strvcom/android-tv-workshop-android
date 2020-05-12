@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidTVWorkshop</string>
+    <string name="header_now_playing">Now playing</string>
+    <string name="header_upcoming">Upcoming</string>
+    <string name="header_top_rated">Top rated</string>
+    <string name="header_popular">Popular</string>
 </resources>
