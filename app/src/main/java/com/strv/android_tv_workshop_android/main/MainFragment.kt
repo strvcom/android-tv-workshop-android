@@ -16,17 +16,18 @@ import com.strv.android_tv_workshop_android.storage.Storage
 import javax.inject.Inject
 
 const val EXTRA_MOVIE = "extra_movie"
+
 class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener,
 	OnItemViewClickedListener {
 	@Inject
 	lateinit var storage: Storage
 
-	private val backgroundManager by lazy { GlideBackgroundManager(activity!!) }
+	private val backgroundManager by lazy { GlideBackgroundManager(requireActivity()) }
 
 	override fun onAttach(context: Context?) {
 		super.onAttach(context)
 
-		(activity!!.application as AndroidTVApp).appComponent.inject(this)
+		(requireActivity().application as AndroidTVApp).appComponent.inject(this)
 	}
 
 	override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener,
 	) {
 		when (item) {
 			is Movie -> {
-				val playerIntent = Intent(activity!!, PlayerActivity::class.java).apply { 
+				val playerIntent = Intent(requireActivity(), PlayerActivity::class.java).apply {
 					putExtra(EXTRA_MOVIE, item)
 				}
 				startActivity(playerIntent)
@@ -66,18 +67,22 @@ class MainFragment : BrowseSupportFragment(), OnItemViewSelectedListener,
 	}
 
 	private fun loadRows() {
-		activity?.let {
+		with(requireActivity()) {
 			val rowsAdapter = ArrayObjectAdapter(
 				ListRowPresenter()
 			)
 
-			storage.moviesState.subscribe({
-				addMovies(it.nowPlayingMovies, rowsAdapter, getString(R.string.header_now_playing))
-				addMovies(it.upcomingMovies, rowsAdapter, getString(R.string.header_upcoming))
-				addMovies(it.popularMovies, rowsAdapter, getString(R.string.header_popular))
-				addMovies(it.topRatedMovies, rowsAdapter, getString(R.string.header_top_rated))
+			storage.moviesState.subscribe({ state ->
+				addMovies(
+					state.nowPlayingMovies,
+					rowsAdapter,
+					getString(R.string.header_now_playing)
+				)
+				addMovies(state.upcomingMovies, rowsAdapter, getString(R.string.header_upcoming))
+				addMovies(state.popularMovies, rowsAdapter, getString(R.string.header_popular))
+				addMovies(state.topRatedMovies, rowsAdapter, getString(R.string.header_top_rated))
 
-			}, {})
+			}, Throwable::printStackTrace)
 
 			adapter = rowsAdapter
 		}

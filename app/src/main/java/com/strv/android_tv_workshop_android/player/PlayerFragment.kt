@@ -2,9 +2,6 @@ package com.strv.android_tv_workshop_android.player
 
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import android.os.Bundle
-import androidx.leanback.app.PlaybackSupportFragment
-import androidx.leanback.app.PlaybackSupportFragmentGlueHost
 import androidx.leanback.app.VideoSupportFragment
 import androidx.leanback.app.VideoSupportFragmentGlueHost
 import androidx.leanback.media.PlaybackTransportControlGlue
@@ -18,14 +15,18 @@ import com.strv.android_tv_workshop_android.domain.Movie
 import com.strv.android_tv_workshop_android.main.EXTRA_MOVIE
 
 class PlayerFragment : VideoSupportFragment() {
-	private lateinit var player: SimpleExoPlayer
-	private lateinit var playerGlue: PlaybackTransportControlGlue<LeanbackPlayerAdapter>
-	private lateinit var movie: Movie
+	private val player by lazy { SimpleExoPlayer.Builder(requireActivity()).build() }
+	private val playerGlue by lazy {
+		PlaybackTransportControlGlue(
+			activity,
+			LeanbackPlayerAdapter(requireActivity(), player, 1000)
+		)
+	}
 
 	override fun onStart() {
 		super.onStart()
 
-		initializePlayer()
+		initializePlayer(requireActivity().intent.getParcelableExtra(EXTRA_MOVIE) as Movie)
 	}
 
 	override fun onStop() {
@@ -34,26 +35,16 @@ class PlayerFragment : VideoSupportFragment() {
 		releasePlayer()
 	}
 
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-
-		movie = activity!!.intent.getParcelableExtra(EXTRA_MOVIE) as Movie
-	}
-
-	private fun initializePlayer() {
-		player = SimpleExoPlayer.Builder(activity!!).build()
-		val adapter = LeanbackPlayerAdapter(activity!!, player, 1000)
-
-		playerGlue = PlaybackTransportControlGlue(activity, adapter)
+	private fun initializePlayer(movie: Movie) {
 		playerGlue.host = VideoSupportFragmentGlueHost(this)
-		fetchSongMetadata()
+		fetchSongMetadata(movie)
 		val mediaSource = buildMediaSource(Uri.parse(movie.trailer))
 		player.prepare(mediaSource!!)
 
 		playerGlue.playWhenPrepared()
 	}
 
-	private fun fetchSongMetadata() {
+	private fun fetchSongMetadata(movie: Movie) {
 		val metadataRetriever = MediaMetadataRetriever()
 		metadataRetriever.setDataSource(movie.trailer, mutableMapOf())
 		playerGlue.title =
@@ -64,14 +55,12 @@ class PlayerFragment : VideoSupportFragment() {
 
 	private fun buildMediaSource(uri: Uri): MediaSource? {
 		val dataSourceFactory: DataSource.Factory =
-			DefaultDataSourceFactory(activity!!, "activevideo-benchmark")
+			DefaultDataSourceFactory(requireActivity(), "activevideo-benchmark")
 		return ProgressiveMediaSource.Factory(dataSourceFactory)
 			.createMediaSource(uri)
 	}
 
 	private fun releasePlayer() {
-		if (::player.isInitialized) {
-			player.release()
-		}
+		player.release()
 	}
 }
